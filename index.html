@@ -4,123 +4,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> portafolio </title>
+    <title>Eliseo Augusta | Front-End Developer</title>
+    <meta name="description"
+        content="Portafolio de Eliseo Augusta, Front-End Developer en Santiago de Chile. Proyectos con HTML, CSS, JavaScript y Vue.js.">
 
-    <!-- font awesome -->
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <!-- Tipografía Syne para títulos y Sora para textos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=Syne:wght@600;700;800&display=swap"
+        rel="stylesheet">
 
-<!-- bootstrap -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos propios sin librerías -->
+    <link rel="stylesheet" href="assets/css/style.css">
 
-      <!-- estilos -->
-<link rel="stylesheet" href="assets/css/style.css">
-
-
+    <!-- Menú hamburguesa -->
+    <script src="assets/js/menu.js" defer></script>
 </head>
 
 <body>
-    <header class="fondo">
-        <div>
-            <img src="assets/img/logo.png" alt="logotipo portafolio">
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+    <header class="header">
+        <div class="contenedor header__barra">
+            <a class="header__marca" href="index.html">Eliseo Augusta</a>
+
+            <!-- Botón hamburguesa para vista desde el celular -->
+            <button class="header__boton" type="button" aria-expanded="false" aria-controls="menu-principal">
+                <span class="solo-lector">Abrir menú</span>
+                <span class="header__icono" aria-hidden="true"></span>
+            </button>
+
+            <!-- En celular es un panel desplegable y en tablet y computador una fila de enlaces -->
+            <nav class="header__nav" id="menu-principal" aria-label="Navegación principal">
+                <ul class="header__menu">
+                    <li><a href="#sobre-mi">Sobre mí</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="pages/caso-de-estudio.html">Caso de estudio</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav class="menu">
-            <ul>
-                <li><a href="#sobremi">sobre mi</a></li>
-                <li><a href="#proyectos">proyectos</a></li>
-                <li><a href="#contacto">contacto</a></li>
-            </ul>
-
-        </nav>
-
     </header>
-    <section class="section">
-        <div class="fondo">
-            <h1>
-    <span class="titulo">
-        Desarrollador Front-End
-    </span>
 
-    <span class="subtitulo"> 
-    Explorando la relación entre diseño y tecnología
-</span> 
-    
-</h1>
-        </div>
-        <div>
-             <img src="assets/img/foto.portafoliopruba.jpg" alt="fotografia de perfil eliseo rodriguez">
-        </div>
-    </section>
-    <main>
-        <section id="sobremi" class="fondo">
-            <h2>sobre mi</h2>
-            <p> Mi interés por el desarrollo Front-End surge de la curiosidad por comprender cómo el diseño y la
-                tecnología se encuentran en los entornos digitales. Actualmente continúo aprendiendo y desarrollando
-                proyectos que me permitan crecer profesionalmente, fortaleciendo mis conocimientos técnicos y mi
-                capacidad para resolver problemas de forma creativa.</p>
+    <main id="contenido">
 
-        </section>
-        <section id="contacto" class="fondo">
-    <h2>Contacto</h2>
-
-<p>
-Disponible para proyectos web y colaboraciones.
-</p>
-
-<p>
-Santiago, Chile.
-</p>
-
-<p>
-ea.rodriguezp97@gmail.com
-</p>
-</section>
-    </main>
-    <aside>
-        <div id="proyectos" class="fondo">
-            <h2 class="mb-3">Proyectos</h2>
-            <hr>
-            <a href="pages/sitios-web.html" target="_blank">
-                <div>
-                    <h3>Sitios web</h3>
-                    <img src="assets/img/pexels1.jpg"
-     class="img-fluid"
-     alt="fotografia referencial sitios sitios-web">
+        <!-- Presentación -->
+        <section class="contenedor hero" aria-labelledby="nombre">
+            <div>
+                <h1 class="hero__nombre" id="nombre">
+                    <span>Eliseo</span>
+                    <span>Augusta</span>
+                </h1>
+                <p class="hero__rol">Front-End Developer</p>
+                <p class="hero__lema">Explorando la relación entre diseño y tecnología.</p>
+                <div class="hero__acciones">
+                    <a class="boton" href="#proyectos">Ver proyectos</a>
+                    <a class="boton boton--borde" href="pages/caso-de-estudio.html">Leer el caso de estudio</a>
                 </div>
-            </a>
-            <hr>
-            <a href="pages/diseno-grafico.html" target="_blank">
-    <div>
-        <h3>Diseño gráfico</h3>
+            </div>
 
-        <img
-            src="assets/img/pexels2.jpg"
-            class="img-fluid"
-            alt="fotografia referencial diseno-grafico" >
-    </div>
-</a>
-            <hr>
+            <figure class="hero__foto">
+                <img src="assets/img/foto-perfil.jpg" width="440" height="727"
+                    alt="Retrato de Eliseo Augusta sentado bajo un árbol, con audífonos al cuello">
+            </figure>
+        </section>
 
+        <!-- Sobre mí -->
+        <section class="seccion" id="sobre-mi" aria-labelledby="titulo-sobre-mi">
+            <div class="contenedor">
+                <h2 id="titulo-sobre-mi">Sobre mí</h2>
+                <div class="sobre-mi">
+                    <div>
+                        <p>
+                            Desarrollo interfaces web con HTML, CSS, JavaScript y Vue.js. Mi interés por el desarrollo
+                            Front-End surge de la curiosidad por comprender cómo el diseño y la tecnología se encuentran
+                            en los entornos digitales.
+                        </p>
+                        <p>
+                            Actualmente continúo aprendiendo y desarrollando proyectos que me permitan crecer
+                            profesionalmente, fortaleciendo mis conocimientos técnicos y mi capacidad para resolver
+                            problemas de forma creativa.
+                        </p>
+                    </div>
+
+                    <dl class="datos">
+                        <div>
+                            <dt>Herramientas</dt>
+                            <dd>
+                                <ul class="etiquetas">
+                                    <li>HTML</li>
+                                    <li>CSS y SASS</li>
+                                    <li>JavaScript</li>
+                                    <li>Vue.js</li>
+                                    <li>Vuex</li>
+                                    <li>Vue Router</li>
+                                    <li>Git y GitHub</li>
+                                    <li>BEM</li>
+                                    <li>Mobile First</li>
+                                </ul>
+                            </dd>
+                        </div>
+                        <div>
+                            <dt>Idiomas</dt>
+                            <dd>Español nativo, inglés intermedio</dd>
+                        </div>
+                        <div>
+                            <dt>Ubicación</dt>
+                            <dd>Santiago, Chile. Disponible para trabajo remoto.</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyectos -->
+        <section class="seccion" id="proyectos" aria-labelledby="titulo-proyectos">
+            <div class="contenedor">
+                <h2 id="titulo-proyectos">Proyectos</h2>
+
+                <div class="proyectos">
+                    <article class="proyecto proyecto--destacado">
+                        <figure class="proyecto__imagen">
+                            <img src="assets/img/proyectos/archivo-libros-arte.jpg" width="1200" height="750"
+                                alt="Catálogo del Archivo de libros de arte con buscador, filtros por categoría y fichas de libros con sus portadas">
+                        </figure>
+                        <div>
+                            <p class="proyecto__contexto">Vue.js, módulos 6 y 7</p>
+                            <h3>Archivo de libros de arte</h3>
+                            <p>
+                                Aplicación para administrar un archivo de libros de arte y catálogos: registro de
+                                piezas, búsqueda, filtros, fichas de detalle, favoritos e inventario de ejemplares.
+                            </p>
+                            <ul class="etiquetas" aria-label="Tecnologías">
+                                <li>Vue 3</li>
+                                <li>Vuex</li>
+                                <li>Vue Router</li>
+                                <li>Axios</li>
+                                <li>json-server</li>
+                            </ul>
+                            <div class="proyecto__enlaces">
+                                <a href="pages/caso-de-estudio.html">Leer el caso de estudio</a>
+                                <a href="https://github.com/earodriguezp97-art/Gestor-de-libros" target="_blank"
+                                    rel="noopener">Ver código<span class="solo-lector"> (se abre en una pestaña
+                                        nueva)</span></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="proyecto">
+                        <figure class="proyecto__imagen">
+                            <img src="assets/img/proyectos/cauce.jpg" width="1200" height="750"
+                                alt="Pantalla de Cauce con el calendario semanal, categorías de propósitos y una lista de tareas del día">
+                        </figure>
+                        <div>
+                            <p class="proyecto__contexto">JavaScript, módulo 5</p>
+                            <h3>Cauce</h3>
+                            <p>
+                                Gestor de tareas con enfoque de bienestar: organiza propósitos diarios por categoría,
+                                con navegación semanal, historial y datos guardados en el navegador.
+                            </p>
+                            <ul class="etiquetas" aria-label="Tecnologías">
+                                <li>JavaScript ES6+</li>
+                                <li>POO</li>
+                                <li>DOM</li>
+                                <li>Fetch API</li>
+                                <li>LocalStorage</li>
+                            </ul>
+                            <div class="proyecto__enlaces">
+                                <a href="https://earodriguezp97-art.github.io/Cauce---Gestor-de-tareas/"
+                                    target="_blank" rel="noopener">Ver sitio<span class="solo-lector"> (se abre en
+                                        una pestaña nueva)</span></a>
+                                <a href="https://github.com/earodriguezp97-art/Cauce---Gestor-de-tareas"
+                                    target="_blank" rel="noopener">Ver código<span class="solo-lector"> (se abre en
+                                        una pestaña nueva)</span></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="proyecto">
+                        <figure class="proyecto__imagen">
+                            <img src="assets/img/proyectos/smartbudget.jpg" width="1200" height="750"
+                                alt="Landing page de SmartBudget con el título, un botón para descargar la app y una imagen de un celular con gráficos financieros">
+                        </figure>
+                        <div>
+                            <p class="proyecto__contexto">SASS, módulo 3</p>
+                            <h3>SmartBudget</h3>
+                            <p>
+                                Landing page para una billetera digital, maquetada con SASS en patrón 7-1,
+                                metodología BEM y enfoque Mobile First.
+                            </p>
+                            <ul class="etiquetas" aria-label="Tecnologías">
+                                <li>HTML</li>
+                                <li>SASS 7-1</li>
+                                <li>BEM</li>
+                                <li>Bootstrap 5</li>
+                                <li>Mobile First</li>
+                            </ul>
+                            <div class="proyecto__enlaces">
+                                <a href="https://github.com/earodriguezp97-art/smartbudget-landing" target="_blank"
+                                    rel="noopener">Ver código<span class="solo-lector"> (se abre en una pestaña
+                                        nueva)</span></a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trayectoria creativa -->
+        <section class="seccion" id="trayectoria" aria-labelledby="titulo-trayectoria">
+            <div class="contenedor">
+                <h2 id="titulo-trayectoria">Trayectoria creativa</h2>
+                <p class="trayectoria__intro">
+                    Antes del código trabajé en arte contemporáneo, moda y producción. De ahí viene mi forma de mirar
+                    una interfaz.
+                </p>
+
+                <ul class="trayectoria">
+                    <li>
+                        <h3>Espacio de Arte Contemporáneo</h3>
+                        <p class="trayectoria__lugar">Montevideo, Uruguay</p>
+                        <p>Asistencia en la coordinación de proyectos artísticos: presupuestos y materiales para
+                            montajes, reuniones con artistas y logística de producción.</p>
+                    </li>
+                    <li>
+                        <h3>La Resistencia Tienda</h3>
+                        <p class="trayectoria__lugar">Moda de segunda mano</p>
+                        <p>Selección de prendas, estilismo y producción de contenido visual para sesiones
+                            fotográficas.</p>
+                    </li>
+                    <li>
+                        <h3>TIBIA</h3>
+                        <p class="trayectoria__lugar">Performance</p>
+                        <p>Producción, apoyo en el montaje técnico y asistencia de vestuario.</p>
+                    </li>
+                    <li>
+                        <h3>Festival EXIT</h3>
+                        <p class="trayectoria__lugar">Montevideo, Uruguay</p>
+                        <p>Montaje, organización espacial y producción en un festival de artes experimentales.</p>
+                    </li>
+                    <li>
+                        <h3>Hotel Alaia</h3>
+                        <p class="trayectoria__lugar">Pichilemu, Chile</p>
+                        <p>Gestión de reservas, coordinación entre equipos y diseño visual de espacios para cenas,
+                            matrimonios y experiencias de huéspedes.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section class="seccion" id="contacto" aria-labelledby="titulo-contacto">
+            <div class="contenedor">
+                <h2 id="titulo-contacto">Contacto</h2>
+                <p>Disponible para proyectos web, colaboraciones y oportunidades junior en modalidad remota.</p>
+                <a class="contacto__correo" href="mailto:ea.rodriguezp97@gmail.com">ea.rodriguezp97@gmail.com</a>
+                <ul class="contacto__redes">
+                    <li>
+                        <a href="https://www.linkedin.com/in/eliseo-rodriguez-pino-46a639161/" target="_blank" rel="noopener">
+                            <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            LinkedIn<span class="solo-lector"> (se abre en una pestaña nueva)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/earodriguezp97-art" target="_blank" rel="noopener">
+                            <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                            GitHub<span class="solo-lector"> (se abre en una pestaña nueva)</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="contenedor">
+            <p>© 2026 Eliseo Augusta. Diseñado y desarrollado con HTML y CSS.</p>
         </div>
-<div class="redes fondo d-flex flex-column">
-            <h3>Redes</h3>
-            <div class="d-flex justify-content-center gap-4">
-
-    <a href="https://www.linkedin.com/in/eliseo-rodriguez-pino-46a639161/">
-<i class="fa-brands fa-linkedin fs-3"></i>
-    </a>
-
-    <a href="https://github.com/earodriguezp97-art">
-        <i class="fa-brands fa-github fs-3"></i>
-    </a>
-
-</div>
-
-    </aside>
-   <footer class="fondo text-center">
-        <p>
-            © 2026 Eliseo Rodríguez · Front-End Developer
-        </p>
     </footer>
 </body>
 

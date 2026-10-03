@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso de estudio: Archivo de libros de arte | Eliseo Augusta</title>
+    <meta name="description"
+        content="Caso de estudio de Eliseo Augusta: cómo reorganicé una aplicación en Vue.js con Vuex, Vue Router y una API.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=Syne:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- Menú hamburguesa -->
+    <script src="../assets/js/menu.js" defer></script>
+</head>
+
+<body>
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+    <header class="header">
+        <div class="contenedor header__barra">
+            <a class="header__marca" href="../index.html">Eliseo Augusta</a>
+
+            <!-- Botón hamburguesa para vista desde el celular -->
+            <button class="header__boton" type="button" aria-expanded="false" aria-controls="menu-principal">
+                <span class="solo-lector">Abrir menú</span>
+                <span class="header__icono" aria-hidden="true"></span>
+            </button>
+
+            <!-- En celular es un panel desplegable y en tablet y computador una fila de enlaces -->
+            <nav class="header__nav" id="menu-principal" aria-label="Navegación principal">
+                <ul class="header__menu">
+                    <li><a href="../index.html#sobre-mi">Sobre mí</a></li>
+                    <li><a href="../index.html#proyectos">Proyectos</a></li>
+                    <li><a href="caso-de-estudio.html" aria-current="page">Caso de estudio</a></li>
+                    <li><a href="../index.html#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido">
+        <div class="contenedor">
+            <a class="volver" href="../index.html#proyectos">Volver a proyectos</a>
+
+            <!-- Cabecera del caso -->
+            <header class="caso__cabecera">
+                <p class="proyecto__contexto">Caso de estudio</p>
+                <h1>Archivo de libros de arte</h1>
+                <p class="caso__bajada">
+                    Cómo una aplicación en Vue.js pasó de vivir en un solo archivo a tener una arquitectura ordenada,
+                    con estado centralizado, rutas y conexión a una API.
+                </p>
+
+                <dl class="caso__ficha">
+                    <div>
+                        <dt>Contexto</dt>
+                        <dd>Bootcamp Front-End Alkemy, módulos 6 y 7</dd>
+                    </div>
+                    <div>
+                        <dt>Tecnología principal</dt>
+                        <dd>Vue 3 con Vuex y Vue Router</dd>
+                    </div>
+                    <div>
+                        <dt>Código</dt>
+                        <dd><a href="https://github.com/earodriguezp97-art/Gestor-de-libros" target="_blank"
+                                rel="noopener">Repositorio en GitHub<span class="solo-lector"> (se abre en una
+                                    pestaña nueva)</span></a></dd>
+                    </div>
+                </dl>
+            </header>
+
+            <div class="galeria">
+                <figure>
+                    <img src="../assets/img/caso/archivo-inventario.jpg" width="1200" height="750"
+                        alt="Página de inicio del archivo con el panel de inventario: 5 títulos, 13 ejemplares, 0 agotados y 3 categorías">
+                    <figcaption>Inicio con el panel de inventario, calculado desde el store.</figcaption>
+                </figure>
+                <figure>
+                    <img src="../assets/img/proyectos/archivo-libros-arte.jpg" width="1200" height="750"
+                        alt="Catálogo con buscador, filtros por categoría y fichas de libros con portada, autor y ejemplares">
+                    <figcaption>Catálogo con buscador, filtros y control de ejemplares.</figcaption>
+                </figure>
+            </div>
+
+            <!-- 1 -->
+            <section class="caso__bloque" aria-labelledby="t-descripcion">
+                <h2 id="t-descripcion">Descripción de la actividad</h2>
+                <p>
+                    Desarrollé una aplicación web para administrar un archivo de libros de arte y catálogos. Es una
+                    herramienta interna pensada para quien gestiona una biblioteca y no para el público. Permite
+                    registrar piezas, buscarlas y filtrarlas, revisar la ficha de cada una, marcar favoritos y
+                    controlar los ejemplares que entran y salen del archivo.
+                </p>
+                <p>
+                    El proyecto tuvo dos etapas que comenzaron en el Módulo 6 donde construí la base en Vue.js y en el Módulo 7 la amplié
+                    con manejo de estado centralizado (Vuex), consumo de una API, una página 404 y una función de
+                    suscripción.
+                </p>
+            </section>
+
+            <!-- 2 -->
+            <section class="caso__bloque" aria-labelledby="t-desafio">
+                <h2 id="t-desafio">Desafío principal</h2>
+                <p>
+                    Lo más difícil fue la ampliación del Módulo 7 que hasta entonces era donde todos los datos vivían en un solo
+                    archivo de <code>App.vue</code> (el componente principal). Al agregar Vuex, una API y nuevas rutas
+                    el proyecto pasó de ser un solo bloque a tener muchas piezas separadas como vistas, componentes,
+                    store (el almacén central de datos), el router (el sistema que decide qué página se muestra) y la
+                    conexión con la API.
+                </p>
+                <p>
+                    El desafío no era solo escribir código nuevo, era entender la arquitectura de dónde va cada
+                    archivo, qué responsabilidad tiene cada uno y cómo se comunican entre sí. Al principio era confuso
+                    saber si algo debía ir en una vista, en un componente o en el store.
+                </p>
+            </section>
+
+            <!-- Diagrama antes y después -->
+            <figure class="diagrama">
+                <div class="diagrama__columnas">
+                    <div>
+                        <p class="diagrama__titulo">Módulo 6</p>
+                        <div class="diagrama__caja diagrama__caja--todo">
+                            <strong><code>App.vue</code></strong>
+                            <span>Guarda los datos, los modifica y reparte la información a todos los componentes.
+                                Todo pasa por un solo archivo.</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="diagrama__titulo">Módulo 7</p>
+                        <ol class="flujo">
+                            <li class="diagrama__caja">
+                                <strong>Vistas y componentes</strong>
+                                <span>Lo que se ve: páginas completas y piezas reutilizables.</span>
+                            </li>
+                            <li class="diagrama__caja">
+                                <strong><code>App.vue</code> como puente</strong>
+                                <span>Envía acciones al store y lee la información desde los getters.</span>
+                            </li>
+                            <li class="diagrama__caja">
+                                <strong>Store de Vuex</strong>
+                                <span>4 módulos: libros, favoritos, sesión y suscriptores.</span>
+                            </li>
+                            <li class="diagrama__caja">
+                                <strong><code>api/index.js</code> con Axios</strong>
+                                <span>Un único punto de conexión con el servidor.</span>
+                            </li>
+                            <li class="diagrama__caja">
+                                <strong>json-server</strong>
+                                <span>Backend simulado que sirve los datos de <code>db.json</code>.</span>
+                            </li>
+                        </ol>
+                        <div class="diagrama__caja flujo__extra">
+                            <strong>Vue Router</strong>
+                            <span>Decide qué vista se muestra según la dirección, incluida la ficha de cada libro y la
+                                página 404.</span>
+                        </div>
+                    </div>
+                </div>
+                <figcaption>Antes y después de la ampliación: de un solo archivo a responsabilidades separadas.
+                </figcaption>
+            </figure>
+
+            <!-- 3 -->
+            <section class="caso__bloque" aria-labelledby="t-solucion">
+                <h2 id="t-solucion">Solución propuesta</h2>
+                <p>Reorganicé el proyecto separando responsabilidades de modo que cada parte hiciera una sola cosa:</p>
+                <ul>
+                    <li><code>views/</code> (páginas completas): Inicio, Lista, Detalle y la página 404.</li>
+                    <li><code>components/</code> (piezas reutilizables): ficha del libro, formulario, panel de
+                        inventario, header y footer.</li>
+                    <li><code>store/</code> (Vuex): dividido en 4 módulos independientes, uno por tema: libros,
+                        favoritos, sesión y suscriptores.</li>
+                    <li><code>router/</code>: rutas, incluida una ruta dinámica para la ficha de cada libro y una ruta
+                        comodín que muestra la página 404 cuando la dirección no existe.</li>
+                    <li><code>api/</code>: un único punto de conexión con el servidor configurado una sola vez.</li>
+                </ul>
+                <p>
+                    Con esto <code>App.vue</code> dejó de modificar datos y pasó a ser solo un puente que envía
+                    acciones al store y lee la información desde ahí.
+                </p>
+                <p>
+                    Además tomé la decisión de que el nombre de usuario y los favoritos quedaran alojados en el
+                    navegador (localStorage) y no en la API porque son datos personales de quien usa la app y no del
+                    archivo compartido.
+                </p>
+            </section>
+
+            <div class="galeria">
+                <figure>
+                    <img src="../assets/img/caso/archivo-ficha.jpg" width="1200" height="750"
+                        alt="Ficha de detalle del libro Seurat: la ciencia del color, con portada, autor, descripción y ejemplares">
+                    <figcaption>Ficha de detalle generada con una ruta dinámica.</figcaption>
+                </figure>
+                <figure>
+                    <img src="../assets/img/caso/archivo-404.jpg" width="1200" height="750"
+                        alt="Página de error 404 con el mensaje Esta página no existe y un botón para volver al inicio">
+                    <figcaption>Página 404 a partir de una ruta comodín.</figcaption>
+                </figure>
+            </div>
+
+            <!-- 4 -->
+            <section class="caso__bloque" aria-labelledby="t-herramientas">
+                <h2 id="t-herramientas">Herramientas técnicas utilizadas</h2>
+                <ul>
+                    <li>Vue.js 3 con Composition API (forma moderna de escribir componentes en Vue)</li>
+                    <li>Vuex para el manejo de estado</li>
+                    <li>Vue Router para la navegación entre páginas</li>
+                    <li>Axios (librería para hacer peticiones a una API)</li>
+                    <li>json-server (un backend simulado que sirve datos como si fuera un servidor real)</li>
+                    <li>CSS con variables y estilos encapsulados por componente</li>
+                    <li>Git y GitHub para el control de versiones (registro de los cambios del código)</li>
+                </ul>
+            </section>
+
+            <!-- 5 -->
+            <section class="caso__bloque" aria-labelledby="t-aprendizajes">
+                <h2 id="t-aprendizajes">Principales aprendizajes</h2>
+                <ul>
+                    <li>Entendí que una aplicación evoluciona bastante cuando cada parte tiene una sola
+                        responsabilidad.</li>
+                    <li>Aprendí la diferencia entre acciones asíncronas (las que esperan respuesta del servidor) y
+                        mutations (las que cambian los datos al instante) y por qué conviene separarlas.</li>
+                    <li>Aprendí a manejar los estados de carga y de error para que el usuario sepa qué está pasando
+                        mientras la app espera los datos.</li>
+                    <li>Aprendí a documentar mis decisiones técnicas y los límites conocidos del proyecto en el
+                        README.</li>
+                </ul>
+            </section>
+
+            <!-- 6 -->
+            <section class="caso__bloque" aria-labelledby="t-metricas">
+                <h2 id="t-metricas">Métricas de impacto</h2>
+                <ul class="metricas">
+                    <li><strong>Estado centralizado</strong> en el que el 100% de los datos compartidos salió de
+                        <code>App.vue</code> y pasó a Vuex organizado en 4 módulos.</li>
+                    <li>La dirección de la API se define en <strong>1 solo lugar</strong> en vez de repetirse en cada
+                        petición.</li>
+                    <li>El proyecto quedó con <strong>4 vistas, 7 componentes y 14 funcionalidades</strong>.</li>
+                    <li>Cada acción que se comunica con la API maneja <strong>carga, error y éxito</strong>.</li>
+                </ul>
+            </section>
+
+            <!-- 7 -->
+            <section class="caso__bloque" aria-labelledby="t-habilidades">
+                <h2 id="t-habilidades">Habilidades técnicas aplicadas</h2>
+                <ul class="etiquetas">
+                    <li>Arquitectura de aplicaciones front-end</li>
+                    <li>Manejo de estado</li>
+                    <li>Consumo de APIs</li>
+                    <li>Programación asíncrona (async/await)</li>
+                    <li>Enrutamiento</li>
+                    <li>Componentes reutilizables con props, eventos y slots</li>
+                    <li>Directivas personalizadas</li>
+                    <li>Validación de formularios</li>
+                    <li>CSS organizado por niveles</li>
+                    <li>Documentación técnica</li>
+                </ul>
+            </section>
+
+            <!-- 8 -->
+            <section class="caso__bloque" aria-labelledby="t-por-que">
+                <h2 id="t-por-que">Por qué elegí este proyecto</h2>
+                <p>
+                    Es el proyecto que mejor muestra mi evolución ya que pasé de construir una aplicación en un solo
+                    archivo a diseñar una estructura ordenada y escalable (que puede crecer sin desordenarse). Además
+                    une mis dos mundos que son el arte y el desarrollo front-end. Es un catálogo de arte parecido al
+                    tipo de producto que hace Artsy que es la empresa que investigué.
+                </p>
+                <p><a class="boton" href="https://github.com/earodriguezp97-art/Gestor-de-libros" target="_blank"
+                        rel="noopener">Ver el código en GitHub<span class="solo-lector"> (se abre en una pestaña
+                            nueva)</span></a></p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="contenedor">
+            <p>© 2026 Eliseo Augusta. Diseñado y desarrollado con HTML y CSS.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
